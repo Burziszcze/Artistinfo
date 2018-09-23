@@ -11,12 +11,13 @@ class Search extends Component {
         <div className="container">
           <div className="row">
             <div className="twelve columns">
+              <label htmlFor="searchinput">Search for artist...</label>
               <input
                 ref="search suggestion"
                 onClick={this.handleChange}
-                className="searchinput u-full-width"
+                className="searchinput twelve columns"
                 type="search"
-                placeholder="Search Artist name..."
+                placeholder="Kyuss for example..."
               />
             </div>
           </div>

@@ -1,12 +1,16 @@
-@import '../../node_modules/skeleton-scss/scss/skeleton.scss';
+// @import '../../node_modules/skeleton-scss/scss/skeleton.scss';
 @import './Colors.scss';
 
 html {
   // webkit-tap-highlight-color: transparent;
   // webkit-text-size-adjust: 100%;
+  position: relative;
+  min-height: 100%;
 }
 body {
+    color: $white;
     /* Center and scale the image nicely */
+    margin-bottom: 60px;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -14,6 +18,7 @@ body {
     background-size: cover;
 }
 .card {
+  
   .container {
     background-color: $black;
     // opacity: 0.8;
@@ -43,7 +48,7 @@ body {
 
 .searchbox {
   text-align: center;
-  margin-top: 20px;
+  // margin-top: 20px;
   .searchinput {
     border-radius: 20px;
     height: 50px;
@@ -55,9 +60,10 @@ body {
 }
 .footer {
   position: absolute;
-    bottom: 0;
+  bottom: 0;
   width: 100%;
   height: 60px;
+  line-height: 60px;
   color: $white;
   background-color: rgb(0, 0, 0);
   opacity: 0.6;
