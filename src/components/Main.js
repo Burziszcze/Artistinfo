@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
-import Search from './Search';
+import BgIMG from '../images/galaxy.jpg';
+import SearchBox from './SearchBox';
 
 class Main extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+  fetchData() { }
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      console.log('do validate');
+    }
+  };
+  handleChange(event) {
+    event.target.value;
+  };
+  componentDidMount() {
+    document.body.style.backgroundImage = 'url(' + BgIMG + ')';
+  }
   render() {
     return (
       <main className="main">
         <div className="container">
           <div className="row">
+            <div className="search-box col-xs-12 col-lg-10 offset-lg-1">
+              <SearchBox
+              />
+            </div>
             <div className="artist-card col-xs-12 col-lg-10 offset-lg-1">
               <div className="row">
                 <div className="artist-img col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 text-center">
