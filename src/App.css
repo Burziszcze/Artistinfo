@@ -12,20 +12,24 @@ body {
   -o-background-size: cover;
   background-size: cover; }
 
+header {
+  justify-content: center;
+  display: flex;
+  align-items: center; }
+  header .header-content .hd-title {
+    margin-top: 20px;
+    color: #F44336;
+    font-size: 1.5rem; }
+
 .card .container {
   background-color: #000000;
-  border-radius: 20px; }
+  border-radius: 0px; }
 
 .card img {
   padding: 25px; }
 
 .card-content {
   color: #FFFFFF; }
-
-.hd-title {
-  margin-top: 20px;
-  color: #F44336;
-  font-size: 1.5rem; }
 
 .flex-row {
   flex-direction: row; }
@@ -42,9 +46,6 @@ body {
     border-radius: 20px;
     height: 50px;
     background-color: transparent; }
-
-.header {
-  background-color: none; }
 
 .footer {
   position: absolute;

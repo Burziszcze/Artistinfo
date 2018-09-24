@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+import Search from './Search';
 
 class Main extends Component {
   render() {
     return (
-      <main className="card">
+      <main className="main">
         <div className="container">
           <div className="row">
-            <div className="twelve columns">
-              <div className="card-content">
-                <div className="five columns">
-                  <img src="https://lastfm-img2.akamaized.net/i/u/300x300/bfd8d78fd1ab4d04a8fb0a4cd504f7d4.png" alt="kyuss" />
+            <div className="artist-card col-xs-12 col-lg-10 offset-lg-1">
+              <div className="row">
+                <div className="artist-img col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 text-center">
+                  <img src="https://lastfm-img2.akamaized.net/i/u/300x300/bfd8d78fd1ab4d04a8fb0a4cd504f7d4.png" alt="kyuss"
+                    className="img-fluid"
+                  />
                 </div>
-                <div className="seven columns">
+                <div className="artist-content col-xs-12 col-md-8 push-md-4 col-lg-7 push-lg-5">
                   <h1>Kyuss</h1>
                   <h4>234234 listeners</h4>
                   <h3>Biography:</h3>
