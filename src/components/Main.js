@@ -9,7 +9,8 @@ class Main extends Component {
     this.state = {
       inputValue: '',
       loading: false,
-
+      // data from api call
+      bio: ``,
       // initial data state
       initialArtist: 'Kyuss'
     }
@@ -31,14 +32,19 @@ class Main extends Component {
   fetchData = event => {
     let key = process.env.REACT_APP_API_KEY;
     let url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${event}&lang=pl&api_key=${key}&format=json`;
+
     // API call
     axios
       .get(url)
       .then(res => {
         const artist = res.data.artist;
+
+        // removing <a> tag from bio response by RegExp
+        let bio = artist.bio.summary.replace(/<a\b[^>]*>(.*?)<\/a>/i, "");
+
         this.setState({
           name: artist.name,
-          bio: artist.bio.summary,
+          bio: bio,
           image: artist.image[5]["#text"],
           ontour: artist.ontour,
           similar: artist.similar.artist,
@@ -66,11 +72,8 @@ class Main extends Component {
   render() {
 
     const { name, bio, image, url, ontour, similar, listeners, playcount, tags } = this.state;
-
     return (
       <main className="main container">
-        {/* <div className="container">
-          <div className="row"> */}
         <div className="col-xs-12 col-lg-10 offset-lg-1 search-box clearpadd">
           <SearchBox
             value={this.state.inputValue}
@@ -94,8 +97,6 @@ class Main extends Component {
             </div>
           </div>
         </div>
-        {/* </div>
-        </div > */}
       </main >
     )
   }
