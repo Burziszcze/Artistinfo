@@ -6366,14 +6366,8 @@ h6 {
   line-height: 1.6;
   letter-spacing: 0; }
 
-header .header-content .logo {
-  margin-top: 25px; }
-
-header .header-content .hd-header {
-  margin-top: 25px; }
-
-header .header-content .hd-title {
-  font-size: 1.5rem; }
+header {
+  padding: 0; }
 
 .search-box {
   background: rgba(0, 0, 0, 0.8); }
@@ -6416,7 +6410,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: auto;
+  height: 60px;
   color: #fff;
   background: rgba(0, 0, 0, 0.6);
   justify-content: center;

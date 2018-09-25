@@ -72,16 +72,17 @@ h6 {
 }
 
 header {
+  padding: 0;
   .header-content {
-    .logo {
-      margin-top: 25px;
-    }
-    .hd-header {
-      margin-top: 25px;
-    }
-    .hd-title {
-      font-size: 1.5rem;
-    }
+    // .logo {
+    //   margin-top: 25px;
+    // }
+    // .hd-header {
+    //   margin-top: 25px;
+    // }
+    // .hd-title {
+    //   font-size: 1.5rem;
+    // }
   }
 }
 
@@ -134,7 +135,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: auto; // line-height: 60px;
+  height: 60px; // line-height: 60px;
   color: $white;
   background: rgba(0, 0, 0, .6);
   justify-content: center;

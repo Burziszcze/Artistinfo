@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
-import BgIMG from '../images/galaxy.jpg';
 import axios from 'axios';
 import SearchBox from './SearchBox';
 
 class Main extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       inputValue: '',
-      errors: [],
       loading: false,
-      // name: '',
-      // bio: '',
-      // image: '',
-      // ontour: 0,
-      // similar: '',
-      // listeners: null,
-      // playcount: null,
-      // tags: '',
-      // url: '',
+
+      // initial data state
+      // name: name,
+      // bio: bio,
+      // image: image,
+      // url: url,
+      // listeners: listeners,
+      // playcount: playcount,
+      // similar: similar,
+      // tags: tags,
+      // ontour: ontour
+      initialArtist: 'Kyuss'
     }
   }
 
@@ -34,9 +36,7 @@ class Main extends Component {
     this.setState({ inputValue: '' });
     this.fetchData(artist);
   }
-  backImg = () => {
-    return document.body.style.backgroundImage = `url('${this.state.image}')`;
-  }
+
   fetchData = event => {
     let key = process.env.REACT_APP_API_KEY;
     let url = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${event}&lang=pl&api_key=${key}&format=json`;
@@ -50,7 +50,7 @@ class Main extends Component {
         this.setState({
           name: artist.name,
           bio: artist.bio.summary,
-          image: artist.image[4]["#text"],
+          image: artist.image[5]["#text"],
           ontour: artist.ontour,
           similar: artist.similar.artist,
           listeners: artist.stats.listeners,
@@ -67,12 +67,11 @@ class Main extends Component {
   }
 
   componentDidUpdate() {
+    document.body.style.backgroundImage = `url('${this.state.image}')`;
   }
   componentDidMount() {
-    document.body.style.backgroundImage = 'url(' + BgIMG + ')';
-    ;
-  }
-  componentWillMount() {
+    this.fetchData(this.state.initialArtist);
+    document.body.style.backgroundImage = `url('${this.state.image}')`;
   }
 
   render() {
@@ -83,7 +82,7 @@ class Main extends Component {
       <main className="main container">
         {/* <div className="container">
           <div className="row"> */}
-        <div className="col-xs-12 col-lg-10 offset-lg-1 search-box">
+        <div className="col-xs-12 col-lg-10 offset-lg-1 search-box clearpadd">
           <SearchBox
             value={this.state.inputValue}
             onChange={this.handleChange}
@@ -92,17 +91,17 @@ class Main extends Component {
         </div>
         <div className="col-xs-12 col-lg-10 offset-lg-1 artist-card">
           <div className="row">
-            <div className="col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 text-center artist-img">
+            <div className="col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 text-center artist-img clearpadd">
               <img src={image} alt={name}
                 className="img-fluid"
               />
             </div>
-            <div className="col-xs-12 col-md-8 push-md-4 col-lg-7 push-lg-5 artist-content">
+            <div className="col-xs-12 col-md-8 push-md-4 col-lg-7 push-lg-5 artist-content clearpadd">
               <h1>{name}</h1>
               <h4>listeners: {listeners}</h4>
               <h3>playcount: {playcount}</h3>
               <h3>Biography:</h3>
-              <p>{bio}</p>
+              <div>{bio}</div>
             </div>
           </div>
         </div>

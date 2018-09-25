@@ -3,7 +3,7 @@ import React from 'react';
 const SearchBox = (props) => {
 
   return (
-    <div className="mt-5 col-sm-12 col-lg-6 col-lg-1">
+    <div className="col-sm-12 col-lg-6 col-lg-1">
       <form onSubmit={props.onSubmit} className="mx-2 my-auto d-inline">
         <label htmlFor="searchbox-input">Type your favourite band ...</label>
         <div className="input-group input-group-lg">
