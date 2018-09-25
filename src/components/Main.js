@@ -30,7 +30,7 @@ class Main extends Component {
 
   fetchData = event => {
     let key = process.env.REACT_APP_API_KEY;
-    let url = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${event}&lang=pl&api_key=${key}&format=json`;
+    let url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${event}&lang=pl&api_key=${key}&format=json`;
     // API call
     axios
       .get(url)
