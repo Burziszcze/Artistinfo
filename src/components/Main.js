@@ -11,15 +11,6 @@ class Main extends Component {
       loading: false,
 
       // initial data state
-      // name: name,
-      // bio: bio,
-      // image: image,
-      // url: url,
-      // listeners: listeners,
-      // playcount: playcount,
-      // similar: similar,
-      // tags: tags,
-      // ontour: ontour
       initialArtist: 'Kyuss'
     }
   }
@@ -40,12 +31,10 @@ class Main extends Component {
   fetchData = event => {
     let key = process.env.REACT_APP_API_KEY;
     let url = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${event}&lang=pl&api_key=${key}&format=json`;
-    console.log(url);
     // API call
     axios
       .get(url)
       .then(res => {
-        console.log(res.data.artist)
         const artist = res.data.artist;
         this.setState({
           name: artist.name,
