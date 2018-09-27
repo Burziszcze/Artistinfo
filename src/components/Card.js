@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SearchBox from './SearchBox';
 
-class Main extends Component {
+class Card extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       inputValue: '',
-      loading: false,
+
       // data from api call
       bio: ``,
       // initial data state
@@ -66,41 +66,43 @@ class Main extends Component {
   }
   componentDidMount() {
     this.fetchData(this.state.initialArtist);
-    document.body.style.backgroundImage = `url('${this.state.image}')`;
   }
 
   render() {
 
     const { name, bio, image, url, ontour, similar, listeners, playcount, tags } = this.state;
+
     return (
-      <main className="main container">
-        <div className="col-xs-12 col-lg-10 offset-lg-1 search-box clearpadd">
-          <SearchBox
-            value={this.state.inputValue}
-            onChange={this.handleChange}
-            onSubmit={this.handleSubmit}
-          />
-        </div>
-        <div className="col-xs-12 col-lg-10 offset-lg-1 artist-card">
-          <div className="row">
-            <div className="col-xs-12 col-md-4 pull-md-8 col-lg-5 pull-lg-7 text-center artist-img clearpadd">
-              <img src={image} alt={name}
-                className="img-fluid"
-              />
-            </div>
-            <div className="col-xs-12 col-md-8 push-md-4 col-lg-7 push-lg-5 artist-content clearpadd">
-              <h1>{name}</h1>
-              <h4>listeners: {listeners}</h4>
-              <h3>playcount: {playcount}</h3>
-              <h3>Biography:</h3>
-              <div>{bio}</div>
-            </div>
+      <div className="card-container">
+        <div className="row">
+          <div className="col-xs-12 col-sm-6">
+            <SearchBox
+              value={this.state.inputValue}
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+            />
           </div>
         </div>
-      </main >
+        <div className="artist-content row">
+          <img
+            alt={name}
+            src={image}
+            className="artist-img col-xs-12 col-sm-12 col-md-5 col-lg-5">
+          </img>
+          <div className="col-sm-12 col-md-7 col-lg-7">
+            <h1>{name}</h1>
+            <span className="taglist"></span>
+            <h4>listeners: {listeners}</h4>
+            <h4>playcount: {playcount}</h4>
+
+            <h3>Biography:</h3>
+            <div>{bio}</div>
+          </div>
+        </div >
+      </div >
     )
   }
 }
 
 
-export default Main;
+export default Card;

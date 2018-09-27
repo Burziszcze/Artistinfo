@@ -71,19 +71,21 @@ h6 {
   letter-spacing: 0;
 }
 
-header {
-  padding: 0;
-}
-
-.search-box {
+.card-container {
   background: rgba(0, 0, 0, .8);
+  border-radius: 2px;
 }
 
-.artist-card {
-  background: rgba(0, 0, 0, .8); // padding: 10px;  
-  border-radius: 2px;
-  .artist-content {
-    color: $white;
+.artist-content {
+  // background: rgba(0, 0, 0, .8);
+  color: $white;
+  padding: 15px;
+  img {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 }
 
@@ -146,7 +148,3 @@ footer {
   width: 100px;
   height: 50px;
 }
-
-// .card {
-//   animation: fadein ease-out 1.4s;
-// }

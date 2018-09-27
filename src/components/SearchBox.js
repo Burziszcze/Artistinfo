@@ -3,8 +3,8 @@ import React from 'react';
 const SearchBox = (props) => {
 
   return (
-    <div className="col-sm-12 col-lg-6 col-lg-1 pt-4">
-      <form onSubmit={props.onSubmit} className="mx-2 my-auto d-inline">
+    <div className="search-box container">
+      <form onSubmit={props.onSubmit} className="mx-4 my-4">
         <label htmlFor="searchbox-input">Type your favourite band ...</label>
         <div className="input-group input-group-lg">
           <div className="input-group-prepend">
@@ -13,6 +13,7 @@ const SearchBox = (props) => {
           <input
             value={props.value}
             onChange={props.onChange}
+            onFocus={(e) => e.target.placeholder = ""}
             type="text"
             className="input-group-lg form-control form-control-lg input-style"
             placeholder="e.g. Slayer..."

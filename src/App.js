@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import './styles/App.css';
 
 // components
-import Header from './components/Header';
-import Main from './components/Main';
+import Navbar from './components/Navbar';
+import Card from './components/Card';
 import Footer from './components/Footer';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Main />
+        <main role="main" className="container">
+          <Navbar />
+          <Card />
+        </main>
         <Footer />
       </div>
     );

@@ -6366,17 +6366,19 @@ h6 {
   line-height: 1.6;
   letter-spacing: 0; }
 
-header {
-  padding: 0; }
-
-.search-box {
-  background: rgba(0, 0, 0, 0.8); }
-
-.artist-card {
+.card-container {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 2px; }
-  .artist-card .artist-content {
-    color: #fff; }
+
+.artist-content {
+  color: #fff;
+  padding: 15px; }
+  .artist-content img {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
 
 .clearpadd {
   padding: 0; }
