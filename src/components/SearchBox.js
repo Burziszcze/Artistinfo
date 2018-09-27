@@ -16,7 +16,7 @@ const SearchBox = (props) => {
             onFocus={(e) => e.target.placeholder = ""}
             type="text"
             className="input-group-lg form-control form-control-lg input-style"
-            placeholder="e.g. Slayer..."
+            placeholder="Search for artist..."
             id="searchbox-input"
             autoComplete='off'
           />

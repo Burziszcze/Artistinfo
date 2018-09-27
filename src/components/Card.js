@@ -7,12 +7,14 @@ class Card extends Component {
     super(props);
 
     this.state = {
+      // handleChange
       inputValue: '',
-
       // data from api call
       bio: ``,
+      tags: [],
+      similar: [],
       // initial data state
-      initialArtist: 'Kyuss'
+      initialArtist: 'Kyuss',
     }
   }
 
@@ -39,8 +41,12 @@ class Card extends Component {
       .then(res => {
         const artist = res.data.artist;
 
+        console.log(url);
+        console.log(artist);
+
         // removing <a> tag from bio response by RegExp
-        let bio = artist.bio.summary.replace(/<a\b[^>]*>(.*?)<\/a>/i, "");
+        let
+          bio = artist.bio.summary.replace(/<a\b[^>]*>(.*?)<\/a>/i, "");
 
         this.setState({
           name: artist.name,
@@ -70,12 +76,12 @@ class Card extends Component {
 
   render() {
 
+    // im gonna destruct you!
     const { name, bio, image, url, ontour, similar, listeners, playcount, tags } = this.state;
-
     return (
       <div className="card-container">
         <div className="row">
-          <div className="col-xs-12 col-sm-6">
+          <div className="col-sm-12 col-md-12 col-lg-6">
             <SearchBox
               value={this.state.inputValue}
               onChange={this.handleChange}
@@ -90,13 +96,48 @@ class Card extends Component {
             className="artist-img col-xs-12 col-sm-12 col-md-5 col-lg-5">
           </img>
           <div className="col-sm-12 col-md-7 col-lg-7">
-            <h1>{name}</h1>
-            <span className="taglist"></span>
-            <h4>listeners: {listeners}</h4>
-            <h4>playcount: {playcount}</h4>
+            <div className="artist-name">
+              <h1 className="artist-name">
+                <a
+                  className="teal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={url}>{name}
+                </a></h1>
+            </div>
+            <div className="tag-list d-flex flex-wrap">
+              <h4 className="tag-item">
+                {tags.map((item, index, url) =>
+                  <a
+                    className="p-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={item.url}
+                    key={index}>{item.name}
+                  </a>)}
+              </h4>
+            </div>
+            <div className="counter d-flex flex-wrap mr-2">
+              <h5>listeners: <b className="p-2 amber">{listeners}</b></h5>
+              <h5>playcount: <b className="p-2 amber">{playcount}</b></h5>
+            </div>
+            <div className="bio my-5">
+              <h4>About {name}...</h4>
+              <p className="gray">{bio}</p>
+            </div>
+            <div className="similar-artists">
+              <h5 className="similar-item">Podobni wykonawcy:
+            {similar.map((item, index, url) =>
+                  <a
+                    className="p-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={item.url}
+                    key={index}>{item.name}
+                  </a>)}
+              </h5>
+            </div>
 
-            <h3>Biography:</h3>
-            <div>{bio}</div>
           </div>
         </div >
       </div >

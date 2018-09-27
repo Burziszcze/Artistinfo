@@ -6312,6 +6312,24 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+.red {
+  color: #f44336; }
+
+.teal {
+  color: #20c997; }
+
+.gray {
+  color: #fafafa; }
+
+.stone {
+  color: #546e7a; }
+
+.lfm-red {
+  color: #d51007; }
+
+.amber {
+  color: #ffc107; }
+
 html {
   position: relative;
   min-height: 100%;
@@ -6333,8 +6351,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: 2rem;
-  font-weight: 300; }
+  font-weight: 400; }
 
 h1 {
   font-size: 4.0rem;
@@ -6379,6 +6396,9 @@ h6 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover; }
+  .artist-content .taglist {
+    display: block;
+    color: #d51007; }
 
 .clearpadd {
   padding: 0; }
@@ -6422,6 +6442,8 @@ footer {
   footer .section-heading #author-footer {
     text-decoration: none;
     color: #20c997; }
+    footer .section-heading #author-footer:hover {
+      color: #28a745; }
   footer .section-heading .fa-heart {
     color: #d51007; }
 
