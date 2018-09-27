@@ -96,7 +96,7 @@ class Card extends Component {
             <div className="artist-name">
               <h1 className="artist-name">
                 <a
-                  className="teal"
+                  className="lfm-red"
                   target="_blank"
                   rel="noopener noreferrer"
                   href={url}>{name}
@@ -134,7 +134,6 @@ class Card extends Component {
                   </a>)}
               </h5>
             </div>
-
           </div>
         </div >
       </div >

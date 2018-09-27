@@ -110,10 +110,6 @@ h6 {
     -o-background-size: cover;
     background-size: cover;
   }
-  .taglist {
-    display: block;
-    color: $lfm-red;
-  }
 }
 
 .clearpadd {
@@ -172,6 +168,10 @@ footer {
       color: $lfm-red;
     }
   }
+}
+
+.artist-name a:hover {
+  color: #b71c1c;
 }
 
 .similar-item,

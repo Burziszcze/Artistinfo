@@ -6396,9 +6396,6 @@ h6 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover; }
-  .artist-content .taglist {
-    display: block;
-    color: #d51007; }
 
 .clearpadd {
   padding: 0; }
@@ -6446,6 +6443,9 @@ footer {
       color: #28a745; }
   footer .section-heading .fa-heart {
     color: #d51007; }
+
+.artist-name a:hover {
+  color: #b71c1c; }
 
 .similar-item a,
 .tag-item a,
