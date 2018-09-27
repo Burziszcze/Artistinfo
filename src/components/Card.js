@@ -14,7 +14,7 @@ class Card extends Component {
       tags: [],
       similar: [],
       // initial data state
-      initialArtist: 'Kyuss',
+      initialArtist: 'Boris Brejcha',
     }
   }
 
@@ -40,9 +40,6 @@ class Card extends Component {
       .get(url)
       .then(res => {
         const artist = res.data.artist;
-
-        console.log(url);
-        console.log(artist);
 
         // removing <a> tag from bio response by RegExp
         let

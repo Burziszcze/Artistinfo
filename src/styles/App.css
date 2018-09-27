@@ -6447,6 +6447,11 @@ footer {
   footer .section-heading .fa-heart {
     color: #d51007; }
 
+.similar-item a,
+.tag-item a,
+.artist-name a {
+  text-decoration: none; }
+
 .logo {
   width: 100px;
   height: 50px; }
