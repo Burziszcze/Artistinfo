@@ -23,6 +23,11 @@ class Card extends Component {
       inputValue: event.target.value
     });
   }
+  handleSimilar = event => {
+    this.setState({
+      similarHandle: event.target.value
+    });
+  }
   handleSubmit = event => {
     event.preventDefault();
     this.setState({ loading: true });
@@ -30,7 +35,6 @@ class Card extends Component {
     this.setState({ inputValue: '' });
     this.fetchData(artist);
   }
-
   fetchData = event => {
     let key = process.env.REACT_APP_API_KEY;
     let url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${event}&lang=pl&api_key=${key}&format=json`;
@@ -94,13 +98,13 @@ class Card extends Component {
           </img>
           <div className="col-sm-12 col-md-7 col-lg-7">
             <div className="artist-name">
-              <h1 className="artist-name">
+              <h1 className="artist-header">
                 <a
                   className="lfm-red"
                   target="_blank"
                   rel="noopener noreferrer"
                   href={url}>{name}
-                </a></h1>
+                </a> {ontour == 1 ? (<span class="badge badge-artist ">On Tour</span>) : null}</h1>
             </div>
             <div className="tag-list d-flex flex-wrap">
               <h4 className="tag-item">
@@ -126,10 +130,11 @@ class Card extends Component {
               <h5 className="similar-item">Podobni wykonawcy:
             {similar.map((item, index, url) =>
                   <a
+                    onChange={item.name}
                     className="p-1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={item.url}
+                    href={item.name}
                     key={index}>{item.name}
                   </a>)}
               </h5>

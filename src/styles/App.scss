@@ -170,6 +170,18 @@ footer {
   }
 }
 
+.artist-header {
+  .badge-artist {
+    background-color: $amber;
+    font-size: 0.4em;
+    color: #000000;
+  }
+}
+
+.artist-name h1 {
+  font-size: 5.0rem;
+}
+
 .artist-name a:hover {
   color: #b71c1c;
 }
