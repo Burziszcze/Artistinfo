@@ -194,6 +194,22 @@ footer {
   }
 }
 
+a:not([href]):not([tabindex]) {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):hover,
+a:not([href]):not([tabindex]):focus {
+  cursor: pointer;
+  color: #0056b3;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):focus {
+  outline: #007bff;
+}
+
 .logo {
   width: 100px;
   height: 50px;

@@ -10,7 +10,6 @@ class Card extends Component {
       // handleChange
       inputValue: '',
       // data from api call
-      bio: ``,
       tags: [],
       similar: [],
       // initial data state
@@ -25,12 +24,13 @@ class Card extends Component {
   }
   handleSimilar = event => {
     this.setState({
-      similarHandle: event.target.value
+      similarArtistHandle: event
     });
+    this.fetchData(event);
   }
+
   handleSubmit = event => {
     event.preventDefault();
-    this.setState({ loading: true });
     const artist = this.state.inputValue;
     this.setState({ inputValue: '' });
     this.fetchData(artist);
@@ -71,14 +71,15 @@ class Card extends Component {
   componentDidUpdate() {
     document.body.style.backgroundImage = `url('${this.state.image}')`;
   }
+
   componentDidMount() {
     this.fetchData(this.state.initialArtist);
   }
-
   render() {
 
     // im gonna destruct you!
     const { name, bio, image, url, ontour, similar, listeners, playcount, tags } = this.state;
+
     return (
       <div className="card-container">
         <div className="row">
@@ -104,13 +105,13 @@ class Card extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                   href={url}>{name}
-                </a> {ontour == 1 ? (<span class="badge badge-artist ">On Tour</span>) : null}</h1>
+                </a> {ontour == 1 ? (<span className="badge badge-artist">On Tour</span>) : null}</h1>
             </div>
-            <div className="tag-list d-flex flex-wrap">
-              <h4 className="tag-item">
+            <div className="tag-list">
+              <h4 className="tag-item d-flex flex-wrap">
                 {tags.map((item, index, url) =>
                   <a
-                    className="p-2"
+                    className="p-1"
                     target="_blank"
                     rel="noopener noreferrer"
                     href={item.url}
@@ -122,20 +123,17 @@ class Card extends Component {
               <h5>listeners: <b className="p-2 amber">{listeners}</b></h5>
               <h5>playcount: <b className="p-2 amber">{playcount}</b></h5>
             </div>
-            <div className="bio my-5">
+            <div className="bio my-3">
               <h4>About {name}...</h4>
               <p className="gray">{bio}</p>
             </div>
             <div className="similar-artists">
-              <h5 className="similar-item">Podobni wykonawcy:
-            {similar.map((item, index, url) =>
+              <h5 className="similar-header d-flex flex-wrap">Podobni wykonawcy:
+              {similar.map((item, index, url) =>
                   <a
-                    onChange={item.name}
-                    className="p-1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={item.name}
-                    key={index}>{item.name}
+                    onClick={this.handleSimilar.bind(this, item.name)}
+                    className="p-1 similar-items"
+                    key={index}> {item.name}
                   </a>)}
               </h5>
             </div>
