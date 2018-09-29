@@ -9,6 +9,7 @@ class Card extends Component {
     this.state = {
       // handleChange
       inputValue: '',
+      bio: '',
       // data from api call
       tags: [],
       similar: [],
@@ -26,16 +27,16 @@ class Card extends Component {
     this.setState({
       similarArtistHandle: event
     });
-    this.fetchData(event);
+    this.fetchArtist(event);
   }
 
   handleSubmit = event => {
     event.preventDefault();
     const artist = this.state.inputValue;
     this.setState({ inputValue: '' });
-    this.fetchData(artist);
+    this.fetchArtist(artist);
   }
-  fetchData = event => {
+  fetchArtist = (event) => {
     let key = process.env.REACT_APP_API_KEY;
     let url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${event}&lang=pl&api_key=${key}&format=json`;
 
@@ -73,7 +74,7 @@ class Card extends Component {
   }
 
   componentDidMount() {
-    this.fetchData(this.state.initialArtist);
+    this.fetchArtist(this.state.initialArtist);
   }
   render() {
 
@@ -123,10 +124,12 @@ class Card extends Component {
               <h5>listeners: <b className="p-2 amber">{listeners}</b></h5>
               <h5>playcount: <b className="p-2 amber">{playcount}</b></h5>
             </div>
-            <div className="bio my-3">
-              <h4>About {name}...</h4>
-              <p className="gray">{bio}</p>
-            </div>
+            {bio !== undefined ?
+              (<div className="bio my-3">
+                <h4>About {name}...</h4>
+                <p className="gray">{bio}</p>
+              </div>) : (<h4>There's no biography...</h4>)
+            }
             <div className="similar-artists">
               <h5 className="similar-header d-flex flex-wrap">Podobni wykonawcy:
               {similar.map((item, index, url) =>
