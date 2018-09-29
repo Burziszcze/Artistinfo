@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './styles/App.css';
 
 // components
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import Card from './components/Card';
+import Tags from './components/Tags';
 import Footer from './components/Footer';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <main role="main" className="container">
-          <Navbar />
-          <Card />
-        </main>
-        <Footer />
-      </div>
+      <Router>
+        <div className="App">
+          <main role="main" className="container">
+            <Header />
+            <Route exact path="/" component={Card}>
+            </Route>
+            <Route path="/tags" component={Tags} />
+          </main>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
