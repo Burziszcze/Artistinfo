@@ -6,9 +6,12 @@ class Tags extends Component {
 
   componentDidMount() {
     document.body.style.backgroundImage = `url('${BgIMG}')`;
+    
   }
 
   render() {
+    let data = this.props.data
+
     return (
       <div className="tags-container">
         <div className="col-xs-12">
@@ -19,6 +22,7 @@ class Tags extends Component {
           </Link>
           <h1 className="teal">This is tags container</h1>
           <p>im gonna display here info about tag and Top artists by tag!</p>
+          <p>{data}</p>
         </div>
       </div>
     )

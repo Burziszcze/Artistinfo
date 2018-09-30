@@ -154,6 +154,7 @@ class Card extends Component {
                     className="p-1"
                     to={`/tags/${item.name}`}
                     key={index}
+                    data={this.state}
                   >{item.name}
                   </Link>)}
               </h4>
