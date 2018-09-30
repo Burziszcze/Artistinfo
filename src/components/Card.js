@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 // components
 import SearchBox from './SearchBox';
-import Tags from './Tags';
 
 class Card extends Component {
   constructor(props) {
@@ -18,10 +17,8 @@ class Card extends Component {
       // data from api call
       tags: [],
       similar: [],
-      artistsByTag: [],
-      tagSummary: '',
       // initial data state
-      initialArtist: 'boris brejcha',
+      initialArtist: 'Nirvana',
     }
   }
 
@@ -40,7 +37,7 @@ class Card extends Component {
     this.setState({
       artistTags: event
     });
-    this.fetchTags(event);
+    // this.fetchTags(event);
   }
   handleSubmit = event => {
     event.preventDefault();
@@ -48,31 +45,31 @@ class Card extends Component {
     this.setState({ inputValue: '' });
     this.fetchArtist(artist);
   }
-  fetchTags = event => {
-    let key = process.env.REACT_APP_API_KEY,
-      url1 = `http://ws.audioscrobbler.com/2.0/?method=tag.getinfo&tag=${event}&api_key=${key}&format=json&lang=pl`,
-      url2 = `http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=${event}%20rock&api_key=${key}&format=json`
+  // fetchTags = event => {
+  //   let key = process.env.REACT_APP_API_KEY,
+  //     url1 = `http://ws.audioscrobbler.com/2.0/?method=tag.getinfo&tag=${event}&api_key=${key}&format=json&lang=pl`,
+  //     url2 = `http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=${event}%20rock&api_key=${key}&format=json`
 
-    // API call for fetch summary tag info and artists by tag name
-    axios
-      .all([
-        axios.get(url1),
-        axios.get(url2)
-      ])
-      .then(axios.spread((tagSummaryRes, tagArtistsRes) => {
-        const summary = tagSummaryRes.data.tag.wiki.summary.replace(/<a\b[^>]*>(.*?)<\/a>/i, "");
-        const artists = tagArtistsRes.data.topartists.artist;
-        // logs for test
-        console.log(summary);
-        console.log(artists);
-        // setState //
-        this.setState({
-          artistsByTag: artists,
-          tagSummary: summary
-        })
-      }))
-      .catch(err => console.log(err));
-  }
+  //   // API call for fetch summary tag info and artists by tag name
+  //   axios
+  //     .all([
+  //       axios.get(url1),
+  //       axios.get(url2)
+  //     ])
+  //     .then(axios.spread((tagSummaryRes, tagArtistsRes) => {
+  //       const summary = tagSummaryRes.data.tag.wiki.summary.replace(/<a\b[^>]*>(.*?)<\/a>/i, "");
+  //       const artists = tagArtistsRes.data.topartists.artist;
+  //       // logs for test
+  //       console.log(summary);
+  //       console.log(artists);
+  //       // setState //
+  //       this.setState({
+  //         artistsByTag: artists,
+  //         tagSummary: summary
+  //       })
+  //     }))
+  //     .catch(err => console.log(err));
+  // }
   fetchArtist = event => {
     let key = process.env.REACT_APP_API_KEY;
     let url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${event}&lang=pl&api_key=${key}&format=json`;
@@ -144,7 +141,7 @@ class Card extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                   href={url}>{name}
-                </a> {ontour == 1 ? (<span className="badge badge-artist">On Tour</span>) : null}</h1>
+                </a> {ontour === 1 ? (<span className="badge badge-artist">On Tour</span>) : null}</h1>
             </div>
             <div className="tag-list">
               <h4 className="tag-item d-flex flex-wrap">
@@ -152,9 +149,8 @@ class Card extends Component {
                   <Link
                     onClick={this.handleTag.bind(this, item.name)}
                     className="p-1"
-                    to={`/tags/${item.name}`}
+                    to={`/${item.name}`}
                     key={index}
-                    data={this.state}
                   >{item.name}
                   </Link>)}
               </h4>
