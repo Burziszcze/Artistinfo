@@ -6,11 +6,20 @@ import { Link } from 'react-router-dom';
 
 
 class Tags extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      artistsByTag: [],
+      tagSummary: ''
+    }
+  }
 
   fetchTags = event => {
     let key = process.env.REACT_APP_API_KEY,
       url1 = `http://ws.audioscrobbler.com/2.0/?method=tag.getinfo&tag=${event}&api_key=${key}&format=json&lang=pl`,
-      url2 = `http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=${event}%20rock&api_key=${key}&format=json`
+      url2 = `http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=${event}&api_key=${key}&format=json`
+    // log for tests
+    console.log(url2);
 
     // API call for fetch summary tag info and artists by tag name
     axios
@@ -21,9 +30,6 @@ class Tags extends Component {
       .then(axios.spread((tagSummaryRes, tagArtistsRes) => {
         const summary = tagSummaryRes.data.tag.wiki.summary.replace(/<a\b[^>]*>(.*?)<\/a>/i, "");
         const artists = tagArtistsRes.data.topartists.artist;
-        // logs for test
-        console.log(summary);
-        console.log(artists);
         // setState //
         this.setState({
           artistsByTag: artists,
@@ -34,23 +40,48 @@ class Tags extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.props.match.params;
-    console.log(`tag name: ${id}`);
     document.body.style.backgroundImage = `url('${BgIMG}')`;
+    const { id } = this.props.match.params;
     this.fetchTags(id);
   }
 
   render() {
+    const { id } = this.props.match.params;
+    const { tagSummary, artistsByTag } = this.state;
+    console.log(artistsByTag);
+
     return (
       <div className="tags-container">
-        <div className="col-xs-12">
-          <Link
-            to="/"
-            className="btn btn-lg btn-outline-light"
-          >Go Back
+        <Link
+          to="/"
+          className="btn btn-lg btn-outline-light"
+        >Go Back
           </Link>
-          <h1 className="teal">This is tags container</h1>
-          <p>im gonna display here info about tag and Top artists by tag!</p>
+        <div className="row">
+          <div className="col-lg-12">
+
+            <div className="tag-card">
+              <h1 className="teal">{id}</h1>
+              <p>{tagSummary}</p>
+              <h4 className="tag-card-header">Artists by this tag:
+            </h4>
+              <div className="card-group center">
+                {artistsByTag.map((item, index) =>
+                  <div
+                    className="card-item">
+                    <img
+                      className="img-fluid tags-images"
+                      src={item.image[4]['#text']}
+                      alt={item.name}
+                      href={item.url}
+                    ></img>
+                    <h5 className="card-title" key={index}>{item.name}</h5>
+                  </div>
+                )}
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     )

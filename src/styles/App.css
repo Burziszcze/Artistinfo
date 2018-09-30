@@ -6397,6 +6397,13 @@ h6 {
     -o-background-size: cover;
     background-size: cover; }
 
+.tags-images {
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
 .clearpadd {
   padding: 0; }
 
@@ -6471,6 +6478,9 @@ a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
 
 a:not([href]):not([tabindex]):focus {
   outline: #007bff; }
+
+.card-group .card-item {
+  padding: 10px; }
 
 .logo {
   width: 100px;
