@@ -111,6 +111,7 @@ h6 {
     background-size: cover;
   }
 }
+
 .tags-images {
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -118,6 +119,7 @@ h6 {
   -o-background-size: cover;
   background-size: cover;
 }
+
 .clearpadd {
   padding: 0;
 }
@@ -223,8 +225,8 @@ a:not([href]):not([tabindex]):focus {
 }
 
 .tag-card {
-  // background: rgba(0, 0, 0, .8);
-  // border-radius: 2px;
+  background: rgba(0, 0, 0, .8);
+  border-radius: 2px;
 }
 
 .logo {

@@ -48,7 +48,6 @@ class Tags extends Component {
   render() {
     const { id } = this.props.match.params;
     const { tagSummary, artistsByTag } = this.state;
-    console.log(artistsByTag);
 
     return (
       <div className="tags-container">
@@ -59,11 +58,10 @@ class Tags extends Component {
           </Link>
         <div className="row">
           <div className="col-lg-12">
-
             <div className="tag-card">
-              <h1 className="teal">{id}</h1>
-              <p>{tagSummary}</p>
-              <h4 className="tag-card-header">Artists by this tag:
+              <h1 className="teal text-center">{id}</h1>
+              <h5>{tagSummary}</h5>
+              <h4 className="tag-card-header amber">Artists by this tag:
             </h4>
               <div className="card-group center">
                 {artistsByTag.map((item, index) =>
@@ -71,9 +69,8 @@ class Tags extends Component {
                     className="card-item">
                     <img
                       className="img-fluid tags-images"
-                      src={item.image[4]['#text']}
+                      src={item.image[2]['#text']}
                       alt={item.name}
-                      href={item.url}
                     ></img>
                     <h5 className="card-title" key={index}>{item.name}</h5>
                   </div>

@@ -6482,6 +6482,10 @@ a:not([href]):not([tabindex]):focus {
 .card-group .card-item {
   padding: 10px; }
 
+.tag-card {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 2px; }
+
 .logo {
   width: 100px;
   height: 50px; }

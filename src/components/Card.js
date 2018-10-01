@@ -18,7 +18,7 @@ class Card extends Component {
       tags: [],
       similar: [],
       // initial data state
-      initialArtist: 'Nirvana',
+      initialArtist: 'Boris brejcha',
     }
   }
 
@@ -45,31 +45,7 @@ class Card extends Component {
     this.setState({ inputValue: '' });
     this.fetchArtist(artist);
   }
-  // fetchTags = event => {
-  //   let key = process.env.REACT_APP_API_KEY,
-  //     url1 = `http://ws.audioscrobbler.com/2.0/?method=tag.getinfo&tag=${event}&api_key=${key}&format=json&lang=pl`,
-  //     url2 = `http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=${event}%20rock&api_key=${key}&format=json`
 
-  //   // API call for fetch summary tag info and artists by tag name
-  //   axios
-  //     .all([
-  //       axios.get(url1),
-  //       axios.get(url2)
-  //     ])
-  //     .then(axios.spread((tagSummaryRes, tagArtistsRes) => {
-  //       const summary = tagSummaryRes.data.tag.wiki.summary.replace(/<a\b[^>]*>(.*?)<\/a>/i, "");
-  //       const artists = tagArtistsRes.data.topartists.artist;
-  //       // logs for test
-  //       console.log(summary);
-  //       console.log(artists);
-  //       // setState //
-  //       this.setState({
-  //         artistsByTag: artists,
-  //         tagSummary: summary
-  //       })
-  //     }))
-  //     .catch(err => console.log(err));
-  // }
   fetchArtist = event => {
     let key = process.env.REACT_APP_API_KEY;
     let url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${event}&lang=pl&api_key=${key}&format=json`;
