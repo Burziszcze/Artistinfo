@@ -50,7 +50,7 @@ class Tags extends Component {
     return (
       <div className="tags-container">
         <Link
-          to="/"
+          to={process.env.PUBLIC_URL + '/'}
           className="btn btn-lg btn-outline-light"
         >Go Back
           </Link>

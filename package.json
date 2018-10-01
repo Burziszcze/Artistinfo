@@ -2,7 +2,7 @@
   "name": "artists",
   "version": "0.1.0",
   "private": true,
-  "homepage": "Artistinfo",
+  "homepage": "https://burziszcze.github.io/Artistinfo",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap-scss": "^4.1.3",
