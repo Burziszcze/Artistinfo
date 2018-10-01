@@ -17,7 +17,7 @@ class App extends Component {
             <Header />
             <Route exact path={process.env.PUBLIC_URL + '/'} component={Card}>
             </Route>
-            <Route path="/tag/:id" exact component={Tags} />
+            <Route path={process.env.PUBLIC_URL + '/tag/:id'} exact component={Tags} />
           </main>
           <Footer />
         </div>
