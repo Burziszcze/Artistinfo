@@ -15,7 +15,7 @@ class App extends Component {
         <div className="App">
           <main role="main" className="container">
             <Header />
-            <Route exact path="/" component={Card}>
+            <Route exact path="" component={Card}>
             </Route>
             <Route path="/tag/:id" exact component={Tags} />
           </main>
