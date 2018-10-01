@@ -54,31 +54,32 @@ class Tags extends Component {
           className="btn btn-lg btn-outline-light"
         >Go Back
           </Link>
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="tag-card">
-              <h1 className="teal text-center">{id}</h1>
-              <h5>{tagSummary}</h5>
-              <h4 className="tag-card-header amber">Artists by this tag:
+        {/* <div className="row"> */}
+        <div className="col-lg-12">
+          <div className="tag-card container">
+            <h1 className="teal text-center">{id}</h1>
+            <h5>{tagSummary}</h5>
+            <h4 className="tag-card-header amber">Artists by this tag:
             </h4>
-              <div className="card-group center">
-                {artistsByTag.map((item, index) =>
-                  <div
-                    className="card-item">
-                    <img
-                      className="img-fluid tags-images"
-                      src={item.image[2]['#text']}
-                      alt={item.name}
-                    ></img>
-                    <h5 className="card-title" key={index}>{item.name}</h5>
-                  </div>
-                )}
-              </div>
+            <div className="card-group center clearpadd">
+              {artistsByTag.map((item, index) =>
+                <div
+                  className="card-item">
+                  <img
+                    className="img-fluid"
+                    src={item.image[4]['#text']}
+                    alt={item.name}
+                  ></img>
+                  <h5 className="card-title" key={index}>{item.name}</h5>
+                  <a href={item.url}>{item.name}</a>
+                </div>
+              )}
             </div>
-
           </div>
+
         </div>
       </div>
+      // </div>
     )
   }
 }

@@ -112,13 +112,13 @@ h6 {
   }
 }
 
-.tags-images {
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+// img {
+  //   background-repeat: no-repeat;
+  //   -webkit-background-size: cover;
+  //   -moz-background-size: cover;
+  //   -o-background-size: cover;
+  //   background-size: cover;
+  // }
 
 .clearpadd {
   padding: 0;
@@ -220,7 +220,14 @@ a:not([href]):not([tabindex]):focus {
 
 .card-group {
   .card-item {
-    padding: 10px;
+    padding: 5px;
+    img {
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
   }
 }
 
