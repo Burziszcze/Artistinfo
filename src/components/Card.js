@@ -125,7 +125,7 @@ class Card extends Component {
                   <Link
                     onClick={this.handleTag.bind(this, item.name)}
                     className="p-1"
-                    to={`/${item.name}`}
+                    to={`/tag/${item.name}`}
                     key={index}
                   >{item.name}
                   </Link>)}

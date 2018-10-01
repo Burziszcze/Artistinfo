@@ -17,7 +17,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Card}>
             </Route>
-            <Route path="/:id" exact component={Tags} />
+            <Route path="/tag/:id" exact component={Tags} />
           </main>
           <Footer />
         </div>
