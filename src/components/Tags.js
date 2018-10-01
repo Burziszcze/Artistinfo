@@ -16,10 +16,8 @@ class Tags extends Component {
 
   fetchTags = event => {
     let key = process.env.REACT_APP_API_KEY,
-      url1 = `http://ws.audioscrobbler.com/2.0/?method=tag.getinfo&tag=${event}&api_key=${key}&format=json&lang=pl`,
-      url2 = `http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=${event}&api_key=${key}&format=json`
-    // log for tests
-    console.log(url2);
+      url1 = `https://ws.audioscrobbler.com/2.0/?method=tag.getinfo&tag=${event}&api_key=${key}&format=json&lang=pl`,
+      url2 = `https://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=${event}&api_key=${key}&format=json`
 
     // API call for fetch summary tag info and artists by tag name
     axios
