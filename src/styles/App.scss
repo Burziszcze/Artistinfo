@@ -1,8 +1,5 @@
 @import '../../node_modules/bootstrap-scss/bootstrap.scss';
 $lfm-red: #d51007;
-$indigo-3: #afbbff;
-$teal-3: #28c8b8;
-$cyan-3: #80deea;
 $amber: #ffc107;
 .red {
   color: #f44336;
@@ -112,13 +109,6 @@ h6 {
   }
 }
 
-// img {
-//   background-repeat: no-repeat;
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-// }
 .clearpadd {
   padding: 0;
 }
@@ -156,7 +146,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px; // line-height: 60px;
+  height: 60px;
   color: $white;
   background: rgba(0, 0, 0, .6);
   justify-content: center;
@@ -235,12 +225,12 @@ a:not([href]):not([tabindex]):focus {
       -o-background-size: cover;
       background-size: cover;
     }
+    &:hover {
+      opacity: 0.7;
+    }
   }
-}
-
-.card-item-anchorhover {
-  &:hover {
-    opacity: 0.8;
+  a:hover {
+    text-decoration: none;
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import BgIMG from '../images/background-img.jpg';
 import axios from 'axios';
+import bgimg from '../images/wallhaven-630296.jpg';
 
 import { Link } from 'react-router-dom';
 
@@ -38,7 +38,7 @@ class Tags extends Component {
   }
 
   componentDidMount() {
-    document.body.style.backgroundImage = `url('${BgIMG}')`;
+    document.body.style.backgroundImage = `url('${bgimg}')`;
     const { id } = this.props.match.params;
     this.fetchTags(id);
   }
@@ -54,33 +54,30 @@ class Tags extends Component {
           className="btn btn-lg btn-outline-light"
         >Go Back
           </Link>
-        <div className="col-lg-12">
+        <div className="col-xs-12">
           <div className="tag-card container">
             <h1 className="teal text-center">{id}</h1>
             <h5>{tagSummary}</h5>
             <h4 className="tag-card-header amber">Artists by this tag:
             </h4>
-            <div className="card-group center clearpadd">
+            <div className="card-group center">
               {artistsByTag.map((item, index) =>
-              <Link
-              to={`${process.env.PUBLIC_URL}${'/'}${item.name}`}
-              className="card-item-anchor"
-              >
-                <div
+                <Link
+                  to={`${process.env.PUBLIC_URL}${'/'}${item.name}`}
                   className="card-item">
-                  <img
-                    className="img-fluid"
-                    src={item.image[4]['#text']}
-                    alt={item.name}
+                  <div
+                    className="card-item">
+                    <img
+                      className="img-fluid"
+                      src={item.image[4]['#text']}
+                      alt={item.name}
                     ></img>
-                  <h5 className="card-title" key={index}>{item.name}</h5>
-                </div>
-
-                    </Link>
+                    <h5 className="card-title" key={index}>{item.name}</h5>
+                  </div>
+                </Link>
               )}
             </div>
           </div>
-
         </div>
       </div>
     )

@@ -27,18 +27,20 @@ class Card extends Component {
       inputValue: event.target.value
     });
   }
+
   handleSimilar = event => {
     this.setState({
       similarArtistHandle: event
     });
     this.fetchArtist(event);
   }
+
   handleTag = event => {
     this.setState({
       artistTags: event
     });
-    // this.fetchTags(event);
   }
+
   handleSubmit = event => {
     event.preventDefault();
     const artist = this.state.inputValue;
@@ -86,6 +88,7 @@ class Card extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
+
     if (id === undefined) {
       this.fetchArtist(this.state.initialArtist);
     } else {
