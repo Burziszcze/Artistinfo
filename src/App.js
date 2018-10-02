@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './styles/App.css';
 
 // components
-import Header from './components/Header';
+import Header from './components/layout/Header';
 import Card from './components/Card';
 import Tags from './components/Tags';
-import Footer from './components/Footer';
+import Footer from './components/layout/Footer';
 
 class App extends Component {
   render() {
@@ -18,6 +18,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/'} component={Card}>
             </Route>
             <Route path={process.env.PUBLIC_URL + '/tag/:id'} exact component={Tags} />
+            <Route path={process.env.PUBLIC_URL + '/:id'} exact component={Card} />
           </main>
           <Footer />
         </div>

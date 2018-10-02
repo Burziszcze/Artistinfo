@@ -54,7 +54,6 @@ class Tags extends Component {
           className="btn btn-lg btn-outline-light"
         >Go Back
           </Link>
-        {/* <div className="row"> */}
         <div className="col-lg-12">
           <div className="tag-card container">
             <h1 className="teal text-center">{id}</h1>
@@ -63,23 +62,27 @@ class Tags extends Component {
             </h4>
             <div className="card-group center clearpadd">
               {artistsByTag.map((item, index) =>
+              <Link
+              to={`${process.env.PUBLIC_URL}${'/'}${item.name}`}
+              className="card-item-anchor"
+              >
                 <div
                   className="card-item">
                   <img
                     className="img-fluid"
                     src={item.image[4]['#text']}
                     alt={item.name}
-                  ></img>
+                    ></img>
                   <h5 className="card-title" key={index}>{item.name}</h5>
-                  <a href={item.url}>{item.name}</a>
                 </div>
+
+                    </Link>
               )}
             </div>
           </div>
 
         </div>
       </div>
-      // </div>
     )
   }
 }

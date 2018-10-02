@@ -6444,6 +6444,12 @@ footer {
   footer .section-heading .fa-heart {
     color: #d51007; }
 
+.hd-Header {
+  color: #fff; }
+  .hd-Header:hover {
+    color: #ced4da;
+    text-decoration: none; }
+
 .artist-header .badge-artist {
   background-color: #ffc107;
   font-size: 0.4em;
@@ -6480,6 +6486,9 @@ a:not([href]):not([tabindex]):focus {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover; }
+
+.card-item-anchorhover:hover {
+  opacity: 0.8; }
 
 .tag-card {
   background: rgba(0, 0, 0, 0.8);

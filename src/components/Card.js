@@ -85,7 +85,12 @@ class Card extends Component {
   }
 
   componentDidMount() {
-    this.fetchArtist(this.state.initialArtist);
+    const { id } = this.props.match.params;
+    if (id === undefined) {
+      this.fetchArtist(this.state.initialArtist);
+    } else {
+      this.fetchArtist(id);
+    }
   }
   render() {
 

@@ -113,13 +113,12 @@ h6 {
 }
 
 // img {
-  //   background-repeat: no-repeat;
-  //   -webkit-background-size: cover;
-  //   -moz-background-size: cover;
-  //   -o-background-size: cover;
-  //   background-size: cover;
-  // }
-
+//   background-repeat: no-repeat;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+// }
 .clearpadd {
   padding: 0;
 }
@@ -178,6 +177,14 @@ footer {
   }
 }
 
+.hd-Header {
+  color: $white;
+  &:hover {
+    color: $gray-400;
+    text-decoration: none;
+  }
+}
+
 .artist-header {
   .badge-artist {
     background-color: $amber;
@@ -228,6 +235,12 @@ a:not([href]):not([tabindex]):focus {
       -o-background-size: cover;
       background-size: cover;
     }
+  }
+}
+
+.card-item-anchorhover {
+  &:hover {
+    opacity: 0.8;
   }
 }
 
