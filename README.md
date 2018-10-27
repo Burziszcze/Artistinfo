@@ -13,7 +13,7 @@ git clone https://github.com/Burziszcze/Artistinfo.git
 # Install dependencies for server
 npm install
 
-# Run the client & server with concurrently
+# Run the client
 npm run dev
 
 # Client runs on http://localhost:3000
