@@ -2,7 +2,7 @@
 
 > a simple ReactJS application that presents information about the music artist using the LastFM API.
 
-- you can easly try demo on [github pages](https://burziszcze.github.io/Artistinfo/)
+- you can easly try <b>demo</b> on [github pages](https://burziszcze.github.io/Artistinfo/)
   or on [Heroku](https://artists-info.herokuapp.com/)
 
 ## Quick Start
