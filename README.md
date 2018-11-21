@@ -21,9 +21,9 @@ npm run dev
 
 ### Add your Last.fm API key, create .env file inside your root app folder [Apply for a key](https://www.last.fm/api/account/create)
 
-...
+```bash
 REACT_APP_API_KEY=<Your_LastFm_API_Key>
-...
+```
 
 ## App Info
 
