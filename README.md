@@ -2,6 +2,8 @@
 
 > a simple ReactJS application that presents information about the music artist using the LastFM API.
 
+![Aphex Twin artist at sample ArtistsInfo](https://imgur.com/a/jt6nEaO)
+
 - you can easly try <b>demo</b> on [github pages](https://burziszcze.github.io/Artistinfo/)
   or on [Heroku](https://artists-info.herokuapp.com/)
 
