@@ -19,9 +19,12 @@ npm run dev
 # Client runs on http://localhost:3000
 ```
 
-### Add your Last.fm API key, create .env file inside your root app folder [Apply for a key](https://www.last.fm/api/account/create)
+### Add your Last.fm API key
+
+> Get your own API key [Apply here](https://www.last.fm/api/account/create)
 
 ```bash
+# create .env file inside your root folder
 REACT_APP_API_KEY=<Your_LastFm_API_Key>
 ```
 
