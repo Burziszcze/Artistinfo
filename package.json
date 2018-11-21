@@ -15,6 +15,7 @@
     "react-scripts": "1.1.5"
   },
   "scripts": {
+    "start": "npm run dev",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
