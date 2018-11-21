@@ -22,7 +22,7 @@ npm run dev
 
 ### Add your Last.fm API key
 
-> Get your own API key [Apply here](https://www.last.fm/api/account/create)
+> Get your own API key by [Apply here](https://www.last.fm/api/account/create)
 
 ```bash
 # create .env file inside your root folder
