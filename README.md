@@ -13,8 +13,7 @@ git clone https://github.com/Burziszcze/Artistinfo.git
 # Install dependencies for server
 npm install
 
-...
- Add your Last.fm API key, create .env file inside your root app folder [Apply for a key](https://www.last.fm/api/account/create)
+# Add your Last.fm API key, create .env file inside your root app folder [Apply for a key](https://www.last.fm/api/account/create)
 
 ...
 REACT_APP_API_KEY=<Your_LastFm_API_Key>
